@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King's Club Fitness — Palestra a Funo di Argelato dal 1994</title>
+<meta name="description" content="King's Club — la palestra della famiglia Fabbri a Funo di Argelato (BO) dal 1994. Bodybuilding, Powerlifting, Corsi, Personal Training e Nutrizione. Prova gratuita, nessun vincolo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/store.css">
+<style>
+  :root{
+    --charcoal:#0c0c0d;--charcoal-2:#111112;--panel:#161617;--panel-2:#1b1b1d;
+    --hairline:#2a2a2c;--hairline-strong:#3a3a3d;
+    --bone:#f3f1ec;--muted:#9d9c99;--muted-2:#6d6c6a;
+    --red:#e11f26;--red-deep:#c11319;--lift:#232325;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--charcoal);color:var(--bone);font-family:'Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer}
+  img{max-width:100%;display:block}
+  .display{font-family:'Anton','Oswald','Arial Narrow',sans-serif;text-transform:uppercase;font-weight:400;letter-spacing:-0.01em;line-height:.92}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 48px}
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .red{color:var(--red)}
+
+  /* K MARK (svg fallback) */
+  .kmark{flex:none}
+  .kmark .stroke{fill:none;stroke:var(--bone);stroke-width:2.6;stroke-linecap:round}
+  .kmark .dot{fill:var(--red)}
+
+  /* ===== NAV ===== */
+  nav{position:sticky;top:0;z-index:60;height:72px;background:rgba(12,12,13,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline);display:flex;align-items:center}
+  .nav-inner{width:100%;max-width:1360px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:38px}
+  .wordmark{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--bone);border-radius:9px;padding:7px 13px 6px;background:#000}
+  .wordmark img,.wordmark .kmark{width:22px;height:22px}
+  .wordmark span{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:20px;letter-spacing:.03em;color:var(--bone);line-height:1;padding-top:2px}
+  .nav-links{display:flex;gap:21px;margin-left:6px}
+  .nav-links a{font-size:15px;color:var(--bone);font-weight:500;transition:color .18s;position:relative}
+  .nav-links a:hover,.nav-links a.active{color:var(--red)}
+  .nav-cta{margin-left:auto;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.03em;background:var(--red);color:#fff;padding:12px 22px 10px;border-radius:100px;border:none;transition:background .18s,transform .18s}
+  .nav-cta:hover{background:#f52a31;transform:translateY(-1px)}
+  .burger{display:none;margin-left:10px;background:none;border:1px solid var(--hairline-strong);border-radius:8px;width:44px;height:40px;color:var(--bone);font-size:20px}
+  .mobile-menu{display:none}
+
+  /* ===== BUTTONS ===== */
+  .btn{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:17px;padding:17px 30px 15px;border-radius:10px;display:inline-flex;align-items:center;gap:10px;transition:transform .18s,background .18s,border-color .18s,color .18s;border:2px solid transparent}
+  .btn-red{background:var(--red);color:#fff;border-color:var(--red)}
+  .btn-red:hover{background:#f52a31;border-color:#f52a31;transform:translateY(-2px)}
+  .btn-out{background:transparent;color:var(--bone);border-color:var(--hairline-strong)}
+  .btn-out:hover{border-color:var(--bone);transform:translateY(-2px)}
+  .btn-sm{font-size:14px;padding:12px 20px 10px}
+
+  /* ===== VIEWS ===== */
+  .view{display:none}
+  .view.active{display:block;animation:viewin .45s ease}
+  @keyframes viewin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--hairline);background:#0c0c0d}
+  /* immagine di sfondo (allenamento reale) */
+  .hero::before{content:"";position:absolute;inset:0;background:url('assets/kings-training-hero.jpg') right 18%/cover no-repeat;opacity:.6;animation:heroFade 1.2s ease both;z-index:0}
+  /* gradiente nero: coprente sul titolo (sinistra), si schiarisce verso destra */
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#0c0c0d 0%,#0c0c0d 34%,rgba(12,12,13,.82) 56%,rgba(12,12,13,.45) 80%,rgba(12,12,13,.2) 100%)}
+  @keyframes heroFade{from{opacity:0}to{opacity:.6}}
+  .hero-inner{position:relative;z-index:2;padding:56px 48px 72px;max-width:1360px;margin:0 auto}
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:clamp(48px,9vw,104px)}
+  .hero-top .r{text-align:right}
+  .hero-top .star{color:var(--red)}
+  h1.hero-h{font-size:clamp(74px,13.5vw,190px);color:var(--bone);letter-spacing:-0.015em;margin-bottom:30px;max-width:14ch}
+  h1.hero-h .g{color:var(--red)}
+  .hero-sub{font-size:clamp(16px,1.5vw,20px);color:var(--muted);max-width:54ch;margin-bottom:36px;line-height:1.55}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+
+  /* ===== MARQUEE ===== */
+  .marquee{background:var(--red);border-top:1px solid #0c0c0d;border-bottom:1px solid #0c0c0d;height:58px;display:flex;align-items:center;overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-block}
+  .marquee-track span{font-family:'Anton',sans-serif;text-transform:uppercase;color:#fff;font-size:23px;letter-spacing:.02em;padding:0 4px}
+  .marquee-track .dot{color:#fff;opacity:.6;padding:0 16px}
+
+  /* ===== STATS ===== */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hairline)}
+  .stat{padding:52px 40px;border-right:1px solid var(--hairline)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-family:'Anton',sans-serif;font-size:clamp(48px,5.6vw,80px);line-height:1;color:var(--bone);letter-spacing:-0.01em}
+  .stat .num.g{color:var(--red)}
+  .stat .lbl{margin-top:14px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* ===== SECTION HEAD ===== */
+  section{scroll-margin-top:80px}
+  .sec-head{padding:88px 0 40px}
+  .sec-head .eyebrow{margin-bottom:16px;color:var(--red)}
+  .sec-head h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(40px,5.5vw,72px);line-height:.94;letter-spacing:-0.01em;color:var(--bone)}
+  .sec-head p{margin-top:18px;color:var(--muted);max-width:58ch;font-size:16px}
+
+  /* ===== PROGRAM CARDS ===== */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:40px}
+  .card{position:relative;background:var(--panel);border:1px solid var(--hairline);border-radius:14px;padding:34px 30px 30px;min-height:340px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;cursor:pointer}
+  .card:hover{transform:translateY(-4px);border-color:var(--hairline-strong)}
+  .card.popular{border-top:3px solid var(--red)}
+  .card .idx{position:absolute;top:26px;right:28px;font-family:'Anton',sans-serif;font-size:40px;color:transparent;-webkit-text-stroke:1.5px var(--hairline-strong)}
+  .card .tick{position:absolute;top:0;left:30px;width:38px;height:4px;background:var(--red);border-radius:0 0 3px 3px}
+  .card.popular .tick{display:none}
+  .tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;background:var(--red);color:#fff;padding:5px 10px 4px;border-radius:5px;margin-bottom:20px;width:max-content}
+  .card h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:32px;letter-spacing:-0.005em;color:var(--bone);margin-bottom:14px;line-height:1;max-width:11ch}
+  .card p{color:var(--muted);font-size:15px;line-height:1.55;margin-bottom:auto}
+  .card .meta{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+  .card .meta span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--hairline);border-radius:6px;padding:7px 11px;font-weight:600}
+  .card .go{margin-top:20px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.04em;color:var(--red);display:flex;align-items:center;gap:8px}
+
+  /* ===== COURSES ===== */
+  .courses{display:flex;flex-wrap:wrap;gap:12px;padding:0 0 48px}
+  .chip{border:1px solid var(--hairline);border-radius:100px;padding:12px 20px;font-size:14px;color:var(--bone);font-weight:500;display:inline-flex;align-items:center;gap:9px}
+  .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+  /* schedule table */
+  .sched{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px}
+  .sched th,.sched td{border:1px solid var(--hairline);padding:14px 10px;text-align:center;vertical-align:middle}
+  .sched th{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.03em;color:var(--bone);background:var(--panel)}
+  .sched td{color:var(--muted)}
+  .sched td .cls{display:inline-block;background:var(--panel-2);border:1px solid var(--hairline);border-radius:6px;padding:6px 9px;color:var(--bone);font-weight:500;margin:2px 0}
+  .sched td .cls.hot{border-color:var(--red);color:var(--bone)}
+  .sched-note{font-size:12px;color:var(--muted-2);letter-spacing:.02em;padding-bottom:96px}
+  .sched-note a{color:var(--red)}
+  .sched-scroll{overflow-x:auto}
+
+  /* ===== HERITAGE ===== */
+  .heritage{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);background:var(--charcoal-2)}
+  .heritage .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;padding-top:88px;padding-bottom:88px;align-items:center}
+  .heritage .big{font-family:'Anton',sans-serif;font-size:clamp(80px,11vw,150px);line-height:.9;color:var(--bone);letter-spacing:-0.02em}
+  .heritage .big .g{color:var(--red)}
+  .heritage .sub{margin-top:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .heritage h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(30px,3.6vw,46px);line-height:1;color:var(--bone);margin-bottom:20px;letter-spacing:-0.005em}
+  .heritage p{color:var(--muted);font-size:16px;line-height:1.65;margin-bottom:16px}
+  .heritage p strong{color:var(--bone);font-weight:600}
+  .story-visual{border:1px solid var(--hairline);border-radius:16px;overflow:hidden;background:#000;max-width:440px}
+  .story-visual img{width:100%;height:auto;display:block}
+  .story-visual.noimg{aspect-ratio:1;background:linear-gradient(135deg,#161617,#0c0c0d)}
+  /* photo band */
+  .photoband{position:relative;height:clamp(320px,46vw,460px);overflow:hidden;border-bottom:1px solid var(--hairline)}
+  .photoband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+  .photoband .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,13,.92) 0%,rgba(12,12,13,.72) 42%,rgba(12,12,13,.35) 100%)}
+  .photoband .inner{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:0 48px;height:100%;display:flex;flex-direction:column;justify-content:center}
+  .photoband .eyebrow{color:var(--red);margin-bottom:14px}
+  .photoband h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(38px,6vw,80px);line-height:.92;color:var(--bone);letter-spacing:-0.015em;max-width:16ch}
+  .photoband p{color:var(--muted);font-size:16px;margin-top:16px;max-width:44ch}
+  .photoband.noimg img{display:none}
+  .photoband.noimg{background:linear-gradient(135deg,#17140d,#0c0c0d)}
+
+  /* ===== ATHLETE FEATURE ===== */
+  .athlete .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;padding:96px 48px;align-items:center}
+  .athlete-img{position:relative;border:1px solid var(--hairline);border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--panel)}
+  .athlete-img img{width:100%;height:100%;object-fit:cover}
+  .athlete-img .badge{position:absolute;left:16px;bottom:16px;background:var(--red);color:#fff;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.06em;padding:8px 14px 6px;border-radius:6px}
+  .athlete-img.noimg{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#161617,#0c0c0d)}
+  .athlete-img.noimg::after{content:"IFBB PRO";font-family:'Anton',sans-serif;font-size:44px;color:var(--lift);letter-spacing:.02em;-webkit-text-stroke:1px var(--hairline-strong);color:transparent}
+  .athlete h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(38px,5vw,62px);line-height:.96;color:var(--bone);margin-bottom:8px}
+  .athlete .role{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:22px}
+  .athlete p{color:var(--muted);font-size:16px;line-height:1.65;margin-bottom:18px;max-width:52ch}
+  .pr-row{display:flex;gap:34px;flex-wrap:wrap;margin-top:24px}
+  .pr-row .pr .n{font-family:'Anton',sans-serif;font-size:40px;color:var(--bone);line-height:1}
+  .pr-row .pr .l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:6px}
+
+  /* ===== SHOP ===== */
+  .shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-bottom:40px}
+  .prod{background:var(--panel);border:1px solid var(--hairline);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+  .prod:hover{transform:translateY(-4px);border-color:var(--hairline-strong)}
+  .prod .ph{aspect-ratio:1;background:var(--panel-2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .prod .ph .glyph{font-family:'Anton',sans-serif;font-size:64px;color:var(--lift);-webkit-text-stroke:1px var(--hairline-strong)}
+  .prod .ph .k{width:52%;opacity:.5}
+  .prod .body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .prod .body h4{font-size:16px;color:var(--bone);font-weight:600}
+  .prod .body .cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+  .prod .body .row{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:12px}
+  .prod .price{font-family:'Anton',sans-serif;font-size:24px;color:var(--bone)}
+  .prod .add{background:var(--red);color:#fff;border:none;border-radius:8px;padding:9px 14px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.04em;transition:background .18s}
+  .prod .add:hover{background:#f52a31}
+  .shop-note{font-size:13px;color:var(--muted-2);padding-bottom:96px}
+
+  /* ===== SPLIT SERVICE (nutrition / PT teaser) ===== */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding-bottom:96px}
+  .svc{background:var(--panel);border:1px solid var(--hairline);border-radius:16px;padding:40px 36px;display:flex;flex-direction:column;transition:border-color .2s}
+  .svc:hover{border-color:var(--hairline-strong)}
+  .svc .ic{width:46px;height:46px;border:1px solid var(--red);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--red);margin-bottom:22px}
+  .svc h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:30px;color:var(--bone);margin-bottom:14px;line-height:1}
+  .svc p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:22px;max-width:44ch}
+  .svc ul{list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:10px}
+  .svc li{color:var(--bone);font-size:14px;display:flex;gap:10px;align-items:flex-start}
+  .svc li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);margin-top:7px;flex:none}
+  .svc .go{margin-top:auto;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.04em;color:var(--red);display:inline-flex;align-items:center;gap:8px}
+
+  /* ===== PROOF ===== */
+  .proof{text-align:center;padding:96px 0;border-top:1px solid var(--hairline)}
+  .stars{display:flex;gap:6px;justify-content:center;margin-bottom:30px}
+  .stars svg{width:26px;height:26px;color:var(--red)}
+  .proof blockquote{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(34px,5.2vw,66px);line-height:.98;letter-spacing:-0.01em;color:var(--bone);max-width:20ch;margin:0 auto}
+  .proof .rule{width:56px;height:2px;background:var(--bone);margin:34px auto 22px}
+  .proof .attr{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* ===== CTA ===== */
+  .cta-band{padding:110px 0;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--hairline)}
+  .cta-band .bg{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0 26px,rgba(225,31,38,.06) 26px 27px);pointer-events:none}
+  .cta-band h2{position:relative;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(48px,8vw,116px);line-height:.92;letter-spacing:-0.015em;color:var(--bone)}
+  .cta-band h2 .g{color:var(--red)}
+  .cta-band p{position:relative;color:var(--muted);font-size:18px;margin:26px 0 34px}
+  .cta-band .micro{position:relative;margin-top:22px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+
+  /* ===== SERVICE PAGE ===== */
+  .page-hero{border-bottom:1px solid var(--hairline);padding:64px 0 56px;position:relative;overflow:hidden}
+  .page-hero .bg{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0 24px,rgba(255,255,255,.025) 24px 25px);-webkit-mask-image:linear-gradient(90deg,transparent 40%,#000);mask-image:linear-gradient(90deg,transparent 40%,#000);pointer-events:none}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:28px;background:none;border:none}
+  .back:hover{color:var(--red)}
+  .page-hero .eyebrow{color:var(--red);margin-bottom:16px}
+  .page-hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(48px,8vw,104px);line-height:.92;color:var(--bone);letter-spacing:-0.015em;max-width:16ch}
+  .page-hero .lead{margin-top:22px;color:var(--muted);font-size:19px;line-height:1.55;max-width:60ch}
+  .page-body{padding:72px 0 96px}
+  .pg-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start}
+  .pg-grid h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:26px;color:var(--bone);margin:0 0 16px}
+  .pg-grid p{color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:22px}
+  .pg-grid p strong{color:var(--bone);font-weight:600}
+  .feat-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin:8px 0 30px}
+  .feat-list li{color:var(--bone);font-size:15px;display:flex;gap:12px;align-items:flex-start;line-height:1.5}
+  .feat-list li::before{content:"→";color:var(--red);font-weight:700;flex:none}
+  .side-card{background:var(--panel);border:1px solid var(--hairline);border-radius:16px;padding:32px 30px;position:sticky;top:96px}
+  .side-card h4{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:20px;color:var(--bone);margin-bottom:18px}
+  .side-card .li{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--hairline);font-size:14px}
+  .side-card .li:last-of-type{border-bottom:none}
+  .side-card .li .k{color:var(--muted)}
+  .side-card .li .v{color:var(--bone);font-weight:600}
+  .side-card .btn{width:100%;justify-content:center;margin-top:22px}
+  .imgband{aspect-ratio:16/6.5;border-radius:16px;overflow:hidden;border:1px solid var(--hairline);margin-bottom:56px;background:var(--panel)}
+  .imgband img{width:100%;height:100%;object-fit:cover;object-position:center 24%}
+  .orario-img{border:1px solid var(--hairline);border-radius:12px;overflow:hidden;margin:6px 0 26px;background:#0f0f10}
+  .orario-img img{width:100%;height:auto;display:block}
+  .imgband.noimg{background:linear-gradient(135deg,#161617,#0c0c0d);position:relative}
+  .imgband.noimg::after{content:"KING'S · SINCE 1994";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;letter-spacing:.1em;color:transparent;-webkit-text-stroke:1px var(--hairline-strong);font-size:clamp(28px,5vw,60px)}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--hairline);padding:70px 0 40px;background:var(--charcoal-2)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .loc{margin-top:24px;color:var(--muted);font-size:14px;line-height:1.7;max-width:28ch}
+  .foot-brand .loc strong{color:var(--bone);font-weight:600}
+  .foot-col h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px;font-weight:700}
+  .foot-col a{display:block;color:var(--muted);font-size:14px;margin-bottom:12px;transition:color .16s;background:none;border:none;padding:0;text-align:left}
+  .foot-col a:hover{color:var(--red)}
+  .foot-legal{margin-top:56px;padding-top:26px;border-top:1px solid var(--hairline);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted-2);font-size:12px;letter-spacing:.04em}
+
+  /* ===== MODAL ===== */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);animation:fade .25s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal .box{position:relative;z-index:2;width:100%;max-width:520px;background:var(--charcoal-2);border:1px solid var(--hairline-strong);border-radius:18px;padding:38px 36px;max-height:92vh;overflow-y:auto;animation:pop .3s cubic-bezier(.2,.9,.3,1.1)}
+  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+  .modal .close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:9px;background:none;border:1px solid var(--hairline);color:var(--muted);font-size:20px;line-height:1}
+  .modal .close:hover{color:var(--bone);border-color:var(--hairline-strong)}
+  .modal .eyebrow{color:var(--red);margin-bottom:12px}
+  .modal h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:34px;line-height:.98;color:var(--bone);margin-bottom:10px}
+  .modal .desc{color:var(--muted);font-size:14px;margin-bottom:24px;line-height:1.55}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:7px}
+  .field input,.field select,.field textarea{width:100%;background:var(--charcoal);border:1px solid var(--hairline-strong);border-radius:9px;padding:13px 14px;color:var(--bone);font-family:inherit;font-size:15px;transition:border-color .16s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .field textarea{resize:vertical;min-height:70px}
+  .field.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .modal .btn{width:100%;justify-content:center;margin-top:8px}
+  .modal .fineprint{font-size:11px;color:var(--muted-2);text-align:center;margin-top:14px;letter-spacing:.04em}
+  .modal .fineprint a{color:var(--red)}
+  .success{text-align:center;padding:10px 0 4px}
+  .success .check{width:66px;height:66px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+  .success .check svg{width:32px;height:32px;color:#fff}
+  .success h3{margin-bottom:12px}
+  .success p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:8px}
+  .success .summary{background:var(--charcoal);border:1px solid var(--hairline);border-radius:10px;padding:16px;margin:20px 0;text-align:left;font-size:14px;color:var(--bone)}
+  .success .summary div{display:flex;justify-content:space-between;padding:5px 0}
+  .success .summary .k{color:var(--muted)}
+
+  /* toast */
+  .toast{position:fixed;z-index:200;left:50%;bottom:28px;transform:translateX(-50%) translateY(30px);background:var(--bone);color:#0c0c0d;font-weight:600;font-size:14px;padding:14px 22px;border-radius:100px;opacity:0;transition:.35s;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* reveal */
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1000px){
+    .wrap,.nav-inner,.hero-inner{padding-left:32px;padding-right:32px}
+    .nav-links{display:none}
+    .nav-cta{display:none}
+    .nav-inner{gap:10px}
+    .burger{display:flex;align-items:center;justify-content:center;margin-left:0}
+    .mobile-menu.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:var(--charcoal-2);border-bottom:1px solid var(--hairline);z-index:55;padding:14px 32px 24px;gap:4px}
+    .mobile-menu a{padding:14px 0;border-bottom:1px solid var(--hairline);color:var(--bone);font-size:16px;font-weight:500}
+    .mobile-menu .btn{margin-top:16px;justify-content:center}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:none}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--hairline)}
+    .cards{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+    .heritage .wrap,.athlete .wrap,.pg-grid,.split{grid-template-columns:1fr;gap:36px}
+    .athlete .wrap{padding-left:32px;padding-right:32px}
+    .athlete-img{max-width:420px}
+    .shop-grid{grid-template-columns:repeat(2,1fr)}
+    .side-card{position:static}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media(max-width:680px){
+    .wrap,.nav-inner,.hero-inner,.athlete .wrap{padding-left:20px;padding-right:20px}
+    .hero-inner{padding-top:40px;padding-bottom:52px}
+    h1.hero-h{font-size:clamp(56px,17vw,88px)}
+    .hero-top{margin-bottom:52px}
+    .hero-top .r{display:none}
+    .hero-actions .btn{flex:1;justify-content:center}
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--hairline);padding:36px 24px}
+    .stat:last-child{border-bottom:none}
+    .shop-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .foot-grid{grid-template-columns:1fr}
+    .marquee-track span{font-size:19px}
+    .field.two{grid-template-columns:1fr}
+    .modal .box{padding:30px 22px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="wordmark" data-nav="home" aria-label="King's Club Fitness">
+      <img src="assets/kings-logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <svg class="kmark" viewBox="0 0 32 32" style="display:none" aria-hidden="true"><path class="stroke" d="M10 5 C8 13 8 19 10 27"/><path class="stroke" d="M11 16 L24 6"/><path class="stroke" d="M11 16 L24 27"/><circle class="dot" cx="14" cy="12" r="2.4"/></svg>
+      <span>King's</span>
+    </a>
+    <div class="nav-links">
+      <a data-nav="home">Home</a>
+      <a data-nav="sala-pesi">Sala Pesi</a>
+      <a data-nav="powerlifting">Powerlifting</a>
+      <a data-nav="corsi">Corsi</a>
+      <a data-nav="personal-training">Personal Trainer</a>
+      <a data-nav="nutrizione">Nutrizione</a>
+      <a data-nav="abbonamenti">Abbonamenti</a>
+      <a data-nav="shop">Shop</a>
+    </div>
+    <div class="nav-actions">
+      <button class="cart-btn" id="cartBtn" aria-label="Apri carrello">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
+      <button class="nav-cta" onclick="openTrial()">Prova gratis</button>
+    </div>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menu">≡</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a data-nav="home">Home</a>
+  <a data-nav="sala-pesi">Sala Pesi</a>
+  <a data-nav="powerlifting">Powerlifting</a>
+  <a data-nav="corsi">Corsi</a>
+  <a data-nav="personal-training">Personal Trainer</a>
+  <a data-nav="nutrizione">Nutrizione</a>
+  <a data-nav="abbonamenti">Abbonamenti</a>
+  <a data-nav="shop">Shop</a>
+  <button class="btn btn-red" onclick="toggleMenu();openTrial()">Prova gratis</button>
+</div>
+
+<main id="app">
+
+<!-- ================= HOME ================= -->
+<div class="view active" id="view-home">
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="eyebrow">Bodybuilding<br>Powerlifting · Fitness</div>
+        <div class="r eyebrow"><span class="star">★</span> 4,7 su Google · 74 recensioni<br>Funo di Argelato · Bologna</div>
+      </div>
+      <h1 class="hero-h display">Allenati<br>come un <span class="g">re</span></h1>
+      <p class="hero-sub">Dal 1994 la palestra della famiglia Fabbri a Funo. Sala pesi old-school, powerlifting, corsi, personal training e nutrizione. Nessun vincolo, solo risultati — la prima sessione è nostra.</p>
+      <div class="hero-actions">
+        <button class="btn btn-red" onclick="openTrial()">Prova gratis →</button>
+        <button class="btn btn-out" onclick="openBook()">Prenota ora</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Bodybuilding</span><span class="dot">✦</span><span>Powerlifting</span><span class="dot">✦</span><span>Muay Thai</span><span class="dot">✦</span><span>Power Pilates</span><span class="dot">✦</span><span>Yoga</span><span class="dot">✦</span><span>Metabolic Workout</span><span class="dot">✦</span>
+      <span>Bodybuilding</span><span class="dot">✦</span><span>Powerlifting</span><span class="dot">✦</span><span>Muay Thai</span><span class="dot">✦</span><span>Power Pilates</span><span class="dot">✦</span><span>Yoga</span><span class="dot">✦</span><span>Metabolic Workout</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num g" data-count="1994" data-plain="1">1994</div><div class="lbl">Dalla fondazione</div></div>
+    <div class="stat"><div class="num"><span data-count="4.7" data-dec="1">4,7</span>★</div><div class="lbl">Valutazione Google</div></div>
+    <div class="stat"><div class="num"><span data-count="2570">2.570</span></div><div class="lbl">Community su Instagram</div></div>
+    <div class="stat"><div class="num" data-count="6" data-suffix="/7">6/7</div><div class="lbl">Giorni a settimana</div></div>
+  </div>
+
+  <!-- PROGRAMS -->
+  <section id="programmi">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow">I nostri programmi</div>
+        <h2>Scegli come<br>allenarti</h2>
+        <p>Tre percorsi, una sola filosofia: il Body Building old-school che ha fatto la storia del King's. Ogni programma è seguito dai nostri istruttori e adattabile al tuo livello.</p>
+      </div>
+      <div class="cards">
+        <div class="card" data-reveal onclick="go('sala-pesi')">
+          <div class="tick"></div><div class="idx">01</div>
+          <h3>Sala pesi</h3>
+          <p>Bodybuilding e ricomposizione corporea con schede personalizzate, macchinari isotonici, pesi liberi e assistenza costante in sala.</p>
+          <div class="meta"><span>60 min</span><span>Tutti i livelli</span></div>
+          <div class="go">Scopri →</div>
+        </div>
+        <div class="card popular" data-reveal onclick="go('powerlifting')">
+          <div class="idx">02</div><span class="tag">Il nostro DNA</span>
+          <h3>Powerlifting</h3>
+          <p>Forza pura su squat, panca e stacco. Programmazione, tecnica di alzata e preparazione alle gare con coach dedicati.</p>
+          <div class="meta"><span>75 min</span><span>Intermedio · Avanzato</span></div>
+          <div class="go">Scopri →</div>
+        </div>
+        <div class="card" data-reveal onclick="go('corsi')">
+          <div class="tick"></div><div class="idx">03</div>
+          <h3>Corsi & Fitness</h3>
+          <p>Muay Thai, Power Pilates, Yoga, Metabolic Workout e Posturale. Lezioni di gruppo ad alta energia per tono, mobilità e resistenza.</p>
+          <div class="meta"><span>45 min</span><span>Open level</span></div>
+          <div class="go">Scopri →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section class="heritage" id="storia">
+    <div class="wrap">
+      <div class="story-visual" data-reveal>
+        <img src="assets/kings-story.jpg" alt="La storia del King's Club — dal 1994" onerror="this.parentElement.classList.add('noimg');this.remove()">
+      </div>
+      <div data-reveal>
+        <div class="big display" style="font-size:clamp(56px,8vw,104px);margin-bottom:6px">30<span class="g">+</span></div>
+        <div class="sub" style="margin-bottom:24px">Anni di storia · dal 15 marzo 1994</div>
+        <h2>La palestra<br>della famiglia Fabbri</h2>
+        <p>Il King's nasce nel <strong>1994</strong> dalla passione di <strong>Franco Fabbri</strong> per la sala pesi e per il Body Building old-school: uno spazio dove gli atleti potessero incontrarsi e migliorare, sul serio.</p>
+        <p>Da quella visione nasce anche il <strong>Trofeo 2 Torri</strong>, gara open che ha segnato il body building italiano ed europeo, cresciuta fino a diventare un vero Expo con oltre <strong>5.000 spettatori</strong>. Quella stessa mentalità è ancora oggi il cuore del club.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="photoband" id="dentro">
+    <img src="assets/kings-training-hero.jpg" alt="Interno della palestra King's Club a Funo" onerror="this.parentElement.classList.add('noimg')">
+    <div class="veil"></div>
+    <div class="inner">
+      <div class="eyebrow">Via Galliera 56 · Funo</div>
+      <h2>Dentro<br>il King's</h2>
+      <p>Sala pesi vera, ferro e pavimento in legno. Aperti fino a 15 ore al giorno, 6 giorni su 7.</p>
+    </div>
+  </section>
+
+  <!-- ATHLETE -->
+  <section class="athlete" id="atleti">
+    <div class="wrap">
+      <div class="athlete-img" data-reveal>
+        <img src="assets/kings-athlete.jpg" alt="Jessica Montanari, atleta IFBB Pro" onerror="this.parentElement.classList.add('noimg');this.remove()">
+        <div class="badge">IFBB Pro Card</div>
+      </div>
+      <div data-reveal>
+        <div class="eyebrow" style="color:var(--red);margin-bottom:14px">La nostra squadra</div>
+        <h2>Jessica<br>Montanari</h2>
+        <div class="role">Atleta IFBB Pro · King's Team</div>
+        <p>Dal Body Building old-school ai palchi internazionali. Il metodo King's porta atleti veri a competere ai massimi livelli — e la stessa preparazione è disponibile per te, dal primo giorno.</p>
+        <p>Programmazione, tecnica, alimentazione e mentalità: tutto quello che serve per fare sul serio, con chi lo fa da oltre trent'anni.</p>
+        <div class="pr-row">
+          <div class="pr"><div class="n">IFBB</div><div class="l">Pro Card</div></div>
+          <div class="pr"><div class="n">30+</div><div class="l">Anni di metodo</div></div>
+          <div class="pr"><div class="n">1:1</div><div class="l">Coaching dedicato</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SPLIT -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow">Oltre l'allenamento</div>
+        <h2>Ti seguiamo<br>a 360°</h2>
+        <p>Non solo sala pesi. Al King's trovi professionisti dedicati per costruire il tuo percorso completo, dentro e fuori dalla palestra.</p>
+      </div>
+      <div class="split">
+        <div class="svc" data-reveal>
+          <div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v6a6 6 0 0 0 12 0V3"/><path d="M6 3h12M9 21h6M12 15v6"/></svg></div>
+          <h3>Personal Training</h3>
+          <p>Un coach dedicato, un obiettivo chiaro. Valutazione iniziale, programma su misura e correzione tecnica ad ogni seduta.</p>
+          <ul><li>Check posturale e funzionale</li><li>Programmazione periodizzata</li><li>Sedute 1:1 o in coppia</li></ul>
+          <button class="go" onclick="go('personal-training')">Scopri il servizio →</button>
+        </div>
+        <div class="svc" data-reveal>
+          <div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <h3>Nutrizione</h3>
+          <p>Il 70% dei risultati è a tavola. Piani alimentari personalizzati e monitoraggio periodico con il nostro nutrizionista.</p>
+          <ul><li>Analisi composizione corporea</li><li>Piano su misura per il tuo obiettivo</li><li>Controlli e aggiustamenti mensili</li></ul>
+          <button class="go" onclick="go('nutrizione')">Scopri il servizio →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP TEASER -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <div class="eyebrow">King's Store</div>
+        <h2>Indossa<br>il club</h2>
+        <p>Merch ufficiale e integrazione selezionata. Ritira in sede o chiedi al bancone — la corona la porti anche fuori.</p>
+      </div>
+      <div class="shop-grid" id="shopHome"></div>
+      <div style="padding-bottom:96px" data-reveal><button class="btn btn-out btn-sm" onclick="go('shop')">Tutto lo shop →</button></div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="wrap" data-reveal>
+      <div class="stars" aria-label="5 stelle su 5">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.5L5.7 21.2 7 14.2 2 9.4l7-.9L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.5L5.7 21.2 7 14.2 2 9.4l7-.9L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.5L5.7 21.2 7 14.2 2 9.4l7-.9L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.5L5.7 21.2 7 14.2 2 9.4l7-.9L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7-6.3-3.5L5.7 21.2 7 14.2 2 9.4l7-.9L12 2z"/></svg>
+      </div>
+      <blockquote>Qui si allena la vecchia scuola, e si vede.</blockquote>
+      <div class="rule"></div>
+      <div class="attr">Membro dal 2019 · Funo di Argelato</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="bg"></div>
+    <div class="wrap" data-reveal>
+      <h2>La tua prova<br>è <span class="g">gratis</span></h2>
+      <p>Vieni a provare il King's. Ti aspettiamo in Via Galliera 56, Funo.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="openTrial()">Prenota la prova →</button>
+        <button class="btn btn-out" onclick="go('abbonamenti')">Vedi gli abbonamenti</button>
+      </div>
+      <div class="micro">Nessun vincolo · disdici quando vuoi</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICE VIEWS ================= -->
+<div class="view" id="view-sala-pesi"></div>
+<div class="view" id="view-powerlifting"></div>
+<div class="view" id="view-corsi"></div>
+<div class="view" id="view-personal-training"></div>
+<div class="view" id="view-nutrizione"></div>
+<div class="view" id="view-abbonamenti"></div>
+<div class="view" id="view-shop"></div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="wordmark" data-nav="home" aria-label="King's Club Fitness">
+          <img src="assets/kings-logo.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <svg class="kmark" viewBox="0 0 32 32" style="display:none" aria-hidden="true"><path class="stroke" d="M10 5 C8 13 8 19 10 27"/><path class="stroke" d="M11 16 L24 6"/><path class="stroke" d="M11 16 L24 27"/><circle class="dot" cx="14" cy="12" r="2.4"/></svg>
+          <span>King's</span>
+        </a>
+        <p class="loc">
+          <strong>King's Club Fitness</strong><br>
+          Via Galliera 56, 40050 Funo di Argelato (BO)<br>
+          Tel. <a href="tel:+390516646731" style="color:var(--red)">051 664 6731</a><br><br>
+          Lun–Ven 7:30–22:30<br>Sab 9:00–19:00 · Dom 9:30–13:00
+        </p>
+      </div>
+      <div class="foot-col">
+        <h4>Allenamento</h4>
+        <a onclick="go('sala-pesi')">Sala pesi</a>
+        <a onclick="go('powerlifting')">Powerlifting</a>
+        <a onclick="go('corsi')">Corsi & Fitness</a>
+        <a onclick="go('personal-training')">Personal Training</a>
+      </div>
+      <div class="foot-col">
+        <h4>Club</h4>
+        <a onclick="openTrial()">Prova gratuita</a>
+        <a onclick="openBook()">Prenota una seduta</a>
+        <a onclick="go('abbonamenti')">Abbonamenti</a>
+        <a onclick="go('nutrizione')">Nutrizione</a>
+        <a onclick="go('shop')">King's Store</a>
+      </div>
+      <div class="foot-col">
+        <h4>Seguici</h4>
+        <div class="socials">
+          <a id="social-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a id="social-facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+          </a>
+        </div>
+        <a href="https://maps.google.com/?q=King's+Club+Fitness+Funo+Galliera+56" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 King's Club S.r.l. — Funo di Argelato (BO)</span>
+      <span>P.IVA · Privacy · Cookie</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODAL: TRIAL ================= -->
+<div class="modal" id="modalTrial" role="dialog" aria-modal="true">
+  <div class="backdrop" onclick="closeModal('modalTrial')"></div>
+  <div class="box">
+    <button class="close" onclick="closeModal('modalTrial')" aria-label="Chiudi">✕</button>
+    <div id="trialForm">
+      <div class="eyebrow">Prova gratuita</div>
+      <h3>La prima sessione<br>è nostra</h3>
+      <p class="desc">Lasciaci i tuoi dati: ti ricontattiamo entro 24h per fissare la tua prova gratuita al King's. Nessun vincolo, nessun impegno.</p>
+      <form onsubmit="submitTrial(event)">
+        <div class="field"><label>Nome e cognome</label><input required name="nome" placeholder="Mario Rossi"></div>
+        <div class="field two">
+          <div><label>Email</label><input required type="email" name="email" placeholder="mario@email.it"></div>
+          <div><label>Telefono</label><input required name="tel" placeholder="333 1234567"></div>
+        </div>
+        <div class="field"><label>Obiettivo principale</label>
+          <select name="goal">
+            <option>Rimettermi in forma</option><option>Massa e ipertrofia</option>
+            <option>Forza / Powerlifting</option><option>Dimagrimento</option>
+            <option>Corsi (Muay Thai, Pilates, Yoga...)</option><option>Non lo so ancora</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-red">Richiedi la prova →</button>
+        <div class="fineprint">Inviando accetti di essere ricontattato. Nessuno spam.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: BOOKING ================= -->
+<div class="modal" id="modalBook" role="dialog" aria-modal="true">
+  <div class="backdrop" onclick="closeModal('modalBook')"></div>
+  <div class="box">
+    <button class="close" onclick="closeModal('modalBook')" aria-label="Chiudi">✕</button>
+    <div id="bookForm">
+      <div class="eyebrow">Prenota</div>
+      <h3>Prenota la tua<br>seduta</h3>
+      <p class="desc">Scegli servizio, giorno e orario. Ti confermiamo la disponibilità via email al più presto.</p>
+      <form onsubmit="submitBook(event)">
+        <div class="field"><label>Nome e cognome</label><input required name="nome" placeholder="Mario Rossi"></div>
+        <div class="field two">
+          <div><label>Email</label><input required type="email" name="email" placeholder="mario@email.it"></div>
+          <div><label>Telefono</label><input required name="tel" placeholder="333 1234567"></div>
+        </div>
+        <div class="field"><label>Servizio</label>
+          <select name="servizio">
+            <option>Sala pesi</option><option>Powerlifting</option><option>Personal Training</option>
+            <option>Muay Thai</option><option>Power Pilates</option><option>Yoga</option>
+            <option>Metabolic Workout</option><option>Consulenza nutrizionale</option>
+          </select>
+        </div>
+        <div class="field two">
+          <div><label>Data</label><input required type="date" name="data"></div>
+          <div><label>Orario</label>
+            <select name="ora">
+              <option>07:30</option><option>09:00</option><option>10:30</option><option>12:00</option>
+              <option>14:00</option><option>17:00</option><option>18:30</option><option>20:00</option><option>21:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Note (opzionale)</label><textarea name="note" placeholder="Es. sono principiante, ho un infortunio al ginocchio..."></textarea></div>
+        <button type="submit" class="btn btn-red">Conferma prenotazione →</button>
+        <div class="fineprint">Riceverai conferma di disponibilità entro poche ore.</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="drawer-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrello">
+  <header>
+    <h3>Carrello</h3>
+    <button class="close" id="cartClose" aria-label="Chiudi">✕</button>
+  </header>
+  <div class="cart-list" id="cartList"></div>
+  <footer>
+    <div class="totrow"><span class="lbl">Totale</span><span class="val" id="cartTotal">0,00 €</span></div>
+    <div class="actions">
+      <button class="btn btn-red" id="cartCheckout">Vai al checkout →</button>
+    </div>
+    <button class="link-clear" id="cartClear">Svuota il carrello</button>
+  </footer>
+</aside>
+
+<!-- ================= CHECKOUT MODAL ================= -->
+<div class="modal" id="modalCheckout" role="dialog" aria-modal="true">
+  <div class="backdrop" data-co-close></div>
+  <div class="box" id="checkoutBox"></div>
+</div>
+
+<!-- ================= COOKIE BANNER (GDPR) ================= -->
+<div class="cookie" id="cookieBanner" role="dialog" aria-label="Preferenze cookie">
+  <h4>Rispettiamo la tua privacy</h4>
+  <p>Usiamo cookie tecnici necessari e, con il tuo consenso, cookie di statistica e marketing. Puoi accettare, rifiutare o scegliere. <a href="#" onclick="return false">Informativa</a>.</p>
+  <div class="prefs" id="cookiePrefs">
+    <div class="pref"><div><div class="t">Necessari</div><div class="s">Indispensabili al funzionamento del sito.</div></div><input type="checkbox" checked disabled></div>
+    <div class="pref"><div><div class="t">Statistiche</div><div class="s">Ci aiutano a capire come viene usato il sito.</div></div><input type="checkbox" id="ck-analytics"></div>
+    <div class="pref"><div><div class="t">Marketing</div><div class="s">Contenuti e offerte personalizzate.</div></div><input type="checkbox" id="ck-marketing"></div>
+  </div>
+  <div class="row">
+    <button class="btn btn-out btn-sm" data-ck-custom>Personalizza</button>
+    <button class="btn btn-out btn-sm" data-ck-reject>Rifiuta</button>
+    <button class="btn btn-red btn-sm" data-ck-all>Accetta tutti</button>
+    <button class="btn btn-red btn-sm" data-ck-save style="display:none">Salva preferenze</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- DATA (servizi/pagine) — il catalogo merch arriva dalle API ---------- */
+const SERVICES = {
+  'sala-pesi':{
+    eyebrow:'Programma 01', title:'Sala pesi & Bodybuilding',
+    lead:'Il cuore del King\'s: ferro, tecnica e crescita. Schede su misura, macchinari isotonici e pesi liberi, con istruttori sempre in sala.',
+    intro:'<p>La sala pesi del King\'s è pensata per il <strong>Body Building old-school</strong> che ci ha resi un riferimento dal 1994. Non trovi solo attrezzi: trovi un metodo, costruito su trent\'anni di esperienza sul campo.</p><p>Che tu voglia mettere massa, ridefinirti o semplicemente rimetterti in moto, partiamo da una <strong>valutazione iniziale</strong> e costruiamo un programma progressivo, con controlli periodici e correzione tecnica ad ogni fase.</p>',
+    h3:'Cosa include', feats:['Scheda personalizzata e periodizzata','Isotonici, pesi liberi e zona funzionale','Assistenza e correzione tecnica in sala','Aggiornamento del programma ogni 4–6 settimane','Accesso negli orari di apertura (fino a 15h/giorno)'],
+    meta:[['Durata seduta','60 min'],['Livello','Tutti i livelli'],['Frequenza','2–5 / settimana'],['Incluso','Scheda + assistenza']],
+    img:'assets/kings-training-hero.jpg',
+    specsTitle:'La palestra in numeri',
+    specs:[['1.200','m² di superficie'],['80+','macchinari isotonici'],['25','postazioni pesi liberi'],['2','sale corsi dedicate'],['15h','aperti ogni giorno'],['300+','kg di dischi e bilancieri']],
+    specsNote:'Aria condizionata, spogliatoi con docce, ampio parcheggio gratuito e reception con integrazione e merch. Ambiente old-school, attrezzatura professionale.'
+  },
+  'powerlifting':{
+    eyebrow:'Programma 02 · Il nostro DNA', title:'Powerlifting & Forza',
+    lead:'Squat, panca, stacco. La disciplina che scorre nelle vene del King\'s fin dal Trofeo 2 Torri. Forza pura, tecnica millimetrica, coach dedicati.',
+    intro:'<p>Il powerlifting è la nostra tradizione. Qui la forza si costruisce con <strong>programmazione seria</strong>, non a caso: analisi delle alzate, lavoro sulle percentuali di carico, gestione del volume e picchi in vista delle gare.</p><p>Dai principianti che vogliono imparare le alzate in sicurezza agli atleti agonisti, ogni percorso è seguito da un <strong>coach dedicato</strong> che cura tecnica, carichi e recupero.</p>',
+    h3:'Il metodo', feats:['Analisi tecnica di squat, panca e stacco','Programmazione a percentuali e periodizzata','Preparazione gare e gestione del picco','Lavoro accessorio mirato ai punti deboli','Coach dedicato ad ogni seduta'],
+    meta:[['Durata seduta','75 min'],['Livello','Intermedio · Avanzato'],['Frequenza','3–4 / settimana'],['Incluso','Coaching tecnico']],
+    img:'assets/kings-training-hero.jpg'
+  },
+  'corsi':{
+    eyebrow:'Programma 03', title:'Corsi & Fitness',
+    lead:'Muay Thai, Power Pilates, Yoga, Metabolic Workout e Posturale. Lezioni di gruppo ad alta energia, ogni settimana a calendario.',
+    intro:'<p>I corsi del King\'s uniscono energia e tecnica: dai colpi della <strong>Muay Thai</strong> al controllo del <strong>Power Pilates</strong>, dalla mobilità dello <strong>Yoga</strong> all\'intensità del <strong>Metabolic Workout</strong>.</p><p>Le lezioni sono aperte a tutti i livelli. La prenotazione si effettua in reception o al telefono — così trovi sempre il tuo posto.</p>',
+    h3:'Le discipline', feats:['Muay Thai — tecnica, cardio e difesa','Power Pilates — core, postura e controllo','Yoga — mobilità, respiro ed equilibrio','Metabolic Workout — alta intensità brucia-grassi','Posturale — schiena sana e movimento corretto'],
+    meta:[['Durata lezione','45–60 min'],['Livello','Open level'],['Prenotazione','In reception'],['Incluso',"Nell'abbonamento"]],
+    img:'assets/kings-yoga.jpg',
+    schedule:true
+  },
+  'personal-training':{
+    eyebrow:'Servizio', title:'Personal Training',
+    lead:'Un coach solo per te. Massima efficienza, zero tempo perso: ogni seduta è costruita sul tuo obiettivo e corretta in tempo reale.',
+    intro:'<p>Il personal training è la via più rapida ai risultati. Si parte da un <strong>check posturale e funzionale</strong>, si definisce un obiettivo misurabile e si lavora seduta dopo seduta con un professionista che ti segue passo passo.</p><p>Ideale se sei alle prime armi e vuoi partire bene, se hai un obiettivo specifico (gara, evento, recupero) o se semplicemente vuoi il massimo dal tuo tempo in palestra.</p>',
+    h3:'Come funziona', feats:['Valutazione iniziale posturale e funzionale','Programma su misura e rivalutazioni','Sedute 1:1 o in coppia','Correzione tecnica in tempo reale','Coordinamento con il piano nutrizionale'],
+    meta:[['Durata seduta','60 min'],['Formato','1:1 o in coppia'],['Livello','Tutti i livelli'],['Incluso','Check + programma']],
+    img:'assets/kings-training-hero.jpg'
+  },
+  'nutrizione':{
+    eyebrow:'Servizio', title:'Nutrizione',
+    lead:'Il 70% dei risultati è a tavola. Piani alimentari personalizzati e monitoraggio periodico con il nostro nutrizionista.',
+    intro:'<p>L\'allenamento senza alimentazione è metà lavoro. Con il nostro <strong>nutrizionista</strong> costruisci un piano realistico e sostenibile, cucito sul tuo obiettivo: massa, definizione, ricomposizione o semplicemente mangiare meglio.</p><p>Partiamo dall\'<strong>analisi della composizione corporea</strong> e ci rivediamo periodicamente per aggiustare il tiro in base ai progressi reali.</p>',
+    h3:'Il percorso', feats:['Analisi della composizione corporea','Piano alimentare personalizzato','Educazione alimentare, non diete-lampo','Controlli e aggiustamenti mensili','Integrazione consigliata quando serve'],
+    meta:[['Primo incontro','45–60 min'],['Controlli','Mensili'],['Formato','In sede'],['Incluso','Piano + follow-up']],
+    img:'assets/kings-athlete.jpg'
+  }
+};
+
+/* weekly schedule (orario reale del club) */
+const SCHEDULE = {
+  days:['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'],
+  rows:[
+    {slot:'12:45–13:45', cells:['Metabolic Workout','Metabolic Workout','—','Metabolic Workout','—','—']},
+    {slot:'16:00–17:00', cells:['—','—','—','—','—','Posturale']},
+    {slot:'17:00–18:30', cells:['—','—','Muay Thai','—','—','Muay Thai']},
+    {slot:'18:00–19:00', cells:['—','Power Pilates','—','—','—','—']},
+    {slot:'18:30–19:30', cells:['—','—','—','Yoga','Power Pilates','—']},
+    {slot:'20:30–22:00', cells:['Muay Thai','Muay Thai','—','Muay Thai','—','—']},
+  ]
+};
+
+/* ---------- BUILD SERVICE VIEWS ---------- */
+function scheduleHTML(){
+  let h='<div class="sched-scroll"><table class="sched"><thead><tr><th></th>';
+  SCHEDULE.days.forEach(d=>h+='<th>'+d+'</th>');
+  h+='</tr></thead><tbody>';
+  SCHEDULE.rows.forEach(r=>{
+    h+='<tr><th>'+r.slot+'</th>';
+    r.cells.forEach(c=>{ h+='<td>'+(c==='—'?'<span style="color:var(--muted-2)">—</span>':'<span class="cls'+(c==='Muay Thai'?' hot':'')+'">'+c+'</span>')+'</td>'; });
+    h+='</tr>';
+  });
+  h+='</tbody></table></div><p class="sched-note">Orari indicativi — la programmazione può variare. La prenotazione ai corsi si effettua in reception o al telefono. Chiama lo <a href="tel:+390516646731">051 664 6731</a> per l\'orario aggiornato.</p>';
+  return h;
+}
+function serviceHTML(id){
+  const s=SERVICES[id];
+  const meta=s.meta.map(m=>`<div class="li"><span class="k">${m[0]}</span><span class="v">${m[1]}</span></div>`).join('');
+  const feats=s.feats.map(f=>`<li>${f}</li>`).join('');
+  return `<section class="page-hero"><div class="bg"></div><div class="wrap">
+      <button class="back" onclick="go('home')">← Torna alla home</button>
+      <div class="eyebrow">${s.eyebrow}</div>
+      <h1 class="display">${s.title}</h1>
+      <p class="lead">${s.lead}</p>
+    </div></section>
+    <section class="page-body"><div class="wrap">
+      ${s.img?`<div class="imgband tall"><img src="${s.img}" alt="King's Club Fitness — ${s.title}" onerror="this.parentElement.classList.add('noimg');this.remove()"></div>`:''}
+      ${s.specs?`<h3 class="gym-h">${s.specsTitle||'La palestra in numeri'}</h3>
+      <div class="gym-specs">${s.specs.map(x=>`<div class="gs"><div class="n">${x[0]}</div><div class="l">${x[1]}</div></div>`).join('')}</div>
+      ${s.specsNote?`<p class="gym-note">${s.specsNote}</p>`:''}`:''}
+      <div class="pg-grid">
+        <div>
+          <h3>${s.h3}</h3>
+          ${s.intro}
+          <ul class="feat-list">${feats}</ul>
+          ${s.schedule?('<h3>Orario settimanale</h3>'+scheduleHTML()):''}
+        </div>
+        <aside>
+          <div class="side-card">
+            <h4>In sintesi</h4>
+            ${meta}
+            <button class="btn btn-red" onclick="openBook()">Prenota una seduta</button>
+            ${(id==='personal-training'||id==='nutrizione')?`<button class="btn btn-out btn-sm" style="width:100%;justify-content:center;margin-top:10px" onclick="buyService('${id}','${id==='personal-training'?'Personal Training — pacchetto 4 sedute':'Consulenza nutrizionale + piano'}',${id==='personal-training'?14000:6000})">Acquista con carta</button>`:''}
+            <button class="btn btn-out btn-sm" style="width:100%;justify-content:center;margin-top:10px" onclick="openTrial()">Prova gratis</button>
+          </div>
+        </aside>
+      </div>
+    </div></section>`;
+}
+Object.keys(SERVICES).forEach(id=>{ document.getElementById('view-'+id).innerHTML = serviceHTML(id); });
+
+/* ---------- ABBONAMENTI ---------- */
+const DURATIONS=[['mensile','Mensile','mese'],['trimestrale','Trimestrale','trimestre'],['semestrale','Semestrale','semestre'],['annuale','Annuale','anno']];
+const PLANS=[
+  {key:'sala-pesi',name:'Sala Pesi',sub:'Accesso completo alla sala pesi.',prices:{mensile:65,trimestrale:175,semestrale:320,annuale:560},feats:['Accesso libero alla sala pesi','Orari completi (fino a 15h/giorno)','Scheda di allenamento personalizzata','Assistenza degli istruttori in sala']},
+  {key:'full',name:'Full',sub:'Sala pesi + tutti i corsi.',pop:true,prices:{mensile:89,trimestrale:240,semestrale:450,annuale:790},feats:['Tutto il piano Sala Pesi','Tutti i corsi (Muay Thai, Pilates, Yoga…)','Rivalutazioni periodiche','Priorità nelle iscrizioni ai corsi']},
+  {key:'premium',name:'Premium',sub:'Il massimo, seguito da vicino.',prices:{mensile:129,trimestrale:350,semestrale:660,annuale:1180},feats:['Tutto il piano Full','2 sessioni di Personal Training / mese','Consulenza nutrizionale inclusa','Accesso prioritario a tutti i servizi']}
+];
+let abboDur='mensile';
+function renderAbbonamenti(){
+  const dl=DURATIONS.find(d=>d[0]===abboDur)[2];
+  document.getElementById('view-abbonamenti').innerHTML =
+   `<section class="page-hero"><div class="bg"></div><div class="wrap">
+      <button class="back" onclick="go('home')">← Torna alla home</button>
+      <div class="eyebrow">Abbonamenti</div>
+      <h1 class="display">Scegli il tuo piano</h1>
+      <p class="lead">Nessun vincolo. La prima sessione è sempre gratis. Paga in palestra o con carta.</p>
+    </div></section>
+    <section class="page-body"><div class="wrap">
+      <div class="dur-toggle" id="durToggle">${DURATIONS.map(d=>`<button data-dur="${d[0]}" class="${d[0]===abboDur?'active':''}">${d[1]}</button>`).join('')}</div>
+      <div class="plans">${PLANS.map(p=>`<div class="plan ${p.pop?'pop':''}">${p.pop?'<span class="tagpop">Più scelto</span>':''}
+        <h3>${p.name}</h3><div class="sub">${p.sub}</div>
+        <div class="price">${p.prices[abboDur]}€ <small>/ ${dl}</small></div>
+        <ul>${p.feats.map(f=>`<li>${f}</li>`).join('')}</ul>
+        <button class="btn ${p.pop?'btn-red':'btn-out'}" onclick="buyPlan('${p.key}','${abboDur}')">Abbonati ora →</button></div>`).join('')}</div>
+      <p class="plans-note">Prezzi IVA inclusa · iscrizione una tantum 30€. Tariffe dedicate per under 18, studenti e over 65: chiama lo <a href="tel:+390516646731" style="color:var(--red)">051 664 6731</a>.</p>
+    </div></section>`;
+  document.querySelectorAll('#durToggle button').forEach(b=>b.addEventListener('click',()=>{abboDur=b.dataset.dur;renderAbbonamenti();}));
+}
+renderAbbonamenti();
+function buyPlan(key,dur){
+  const p=PLANS.find(x=>x.key===key), d=DURATIONS.find(x=>x[0]===dur);
+  window.KCCheckout.openDirect([{name:`Abbonamento ${p.name} · ${d[1]}`,price_cents:p.prices[dur]*100,qty:1,payload:{type:'abbonamento',plan:key,duration:dur,qty:1}}]);
+}
+function buyService(key,name,priceCents){
+  window.KCCheckout.openDirect([{name,price_cents:priceCents,qty:1,payload:{type:'servizio',key,qty:1}}]);
+}
+
+/* ---------- ROUTER ---------- */
+function setActiveNav(id){
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active', a.dataset.nav===id));
+}
+function go(id){
+  const view=document.getElementById('view-'+id);
+  if(!view){ return; }
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  view.classList.add('active');
+  setActiveNav(id);
+  history.replaceState(null,'','#'+id);
+  window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
+  observeReveals();
+}
+document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();closeMenuIfOpen();go(a.dataset.nav);}));
+
+/* ---------- MODALS ---------- */
+let lastFocus=null;
+function openModal(id){ lastFocus=document.activeElement; const m=document.getElementById(id); m.classList.add('open'); document.body.style.overflow='hidden'; const f=m.querySelector('input,select,button'); if(f)setTimeout(()=>f.focus(),50); }
+function closeModal(id){ document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; if(lastFocus)lastFocus.focus(); }
+function openTrial(){ resetTrial(); openModal('modalTrial'); }
+function openBook(){ resetBook(); const d=document.querySelector('#modalBook input[name=data]'); if(d){const t=new Date(Date.now()+86400000);d.value=t.toISOString().slice(0,10);d.min=new Date().toISOString().slice(0,10);} openModal('modalBook'); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){document.querySelectorAll('.modal.open').forEach(m=>closeModal(m.id));} });
+
+function checkSVG(){return '<div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></div>';}
+async function submitTrial(e){
+  e.preventDefault();
+  const f=e.target, nome=f.nome.value.split(' ')[0];
+  const b=f.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Invio...';
+  try{ await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'prova',name:f.nome.value,email:f.email.value,phone:f.tel.value,notes:'Obiettivo: '+f.goal.value})}); }catch(_){}
+  document.getElementById('trialForm').innerHTML =
+    `<div class="success">${checkSVG()}<h3>Ci siamo, ${nome}!</h3>
+     <p>Abbiamo ricevuto la tua richiesta di <strong>prova gratuita</strong>. Ti ricontattiamo entro 24h al numero che ci hai lasciato per fissare il tuo primo allenamento al King's.</p>
+     <p style="color:var(--muted-2);font-size:13px;margin-top:14px">A presto in Via Galliera 56 · 💪</p>
+     <button class="btn btn-red" style="width:100%;justify-content:center;margin-top:20px" onclick="closeModal('modalTrial')">Chiudi</button></div>`;
+  toast('Richiesta inviata ✓');
+}
+async function submitBook(e){
+  e.preventDefault();
+  const f=e.target;
+  const b=f.querySelector('button[type=submit]'); b.disabled=true; b.textContent='Invio...';
+  try{ await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'prenotazione',name:f.nome.value,email:f.email.value,phone:f.tel.value,service:f.servizio.value,date:f.data.value,time:f.ora.value,notes:f.note.value})}); }catch(_){}
+  const data=new Date(f.data.value).toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+  document.getElementById('bookForm').innerHTML =
+    `<div class="success">${checkSVG()}<h3>Prenotazione inviata!</h3>
+     <p>Ti confermiamo la disponibilità via email a breve.</p>
+     <div class="summary">
+       <div><span class="k">Servizio</span><span>${f.servizio.value}</span></div>
+       <div><span class="k">Giorno</span><span>${data}</span></div>
+       <div><span class="k">Orario</span><span>${f.ora.value}</span></div>
+       <div><span class="k">A nome di</span><span>${f.nome.value}</span></div>
+     </div>
+     <p style="color:var(--muted-2);font-size:13px">La trovi anche in reception per qualsiasi info.</p>
+     <button class="btn btn-red" style="width:100%;justify-content:center;margin-top:18px" onclick="closeModal('modalBook')">Perfetto, chiudi</button></div>`;
+  toast('Prenotazione inviata ✓');
+}
+function resetTrial(){
+  document.getElementById('trialForm').innerHTML =
+   `<div class="eyebrow">Prova gratuita</div><h3>La prima sessione<br>è nostra</h3>
+    <p class="desc">Lasciaci i tuoi dati: ti ricontattiamo entro 24h per fissare la tua prova gratuita al King's. Nessun vincolo, nessun impegno.</p>
+    <form onsubmit="submitTrial(event)">
+      <div class="field"><label>Nome e cognome</label><input required name="nome" placeholder="Mario Rossi"></div>
+      <div class="field two"><div><label>Email</label><input required type="email" name="email" placeholder="mario@email.it"></div><div><label>Telefono</label><input required name="tel" placeholder="333 1234567"></div></div>
+      <div class="field"><label>Obiettivo principale</label><select name="goal"><option>Rimettermi in forma</option><option>Massa e ipertrofia</option><option>Forza / Powerlifting</option><option>Dimagrimento</option><option>Corsi (Muay Thai, Pilates, Yoga...)</option><option>Non lo so ancora</option></select></div>
+      <button type="submit" class="btn btn-red">Richiedi la prova →</button>
+      <div class="fineprint">Inviando accetti di essere ricontattato. Nessuno spam.</div>
+    </form>`;
+}
+function resetBook(){
+  document.getElementById('bookForm').innerHTML =
+   `<div class="eyebrow">Prenota</div><h3>Prenota la tua<br>seduta</h3>
+    <p class="desc">Scegli servizio, giorno e orario. Ti confermiamo la disponibilità via email al più presto.</p>
+    <form onsubmit="submitBook(event)">
+      <div class="field"><label>Nome e cognome</label><input required name="nome" placeholder="Mario Rossi"></div>
+      <div class="field two"><div><label>Email</label><input required type="email" name="email" placeholder="mario@email.it"></div><div><label>Telefono</label><input required name="tel" placeholder="333 1234567"></div></div>
+      <div class="field"><label>Servizio</label><select name="servizio"><option>Sala pesi</option><option>Powerlifting</option><option>Personal Training</option><option>Muay Thai</option><option>Power Pilates</option><option>Yoga</option><option>Metabolic Workout</option><option>Consulenza nutrizionale</option></select></div>
+      <div class="field two"><div><label>Data</label><input required type="date" name="data"></div><div><label>Orario</label><select name="ora"><option>07:30</option><option>09:00</option><option>10:30</option><option>12:00</option><option>14:00</option><option>17:00</option><option>18:30</option><option>20:00</option><option>21:00</option></select></div></div>
+      <div class="field"><label>Note (opzionale)</label><textarea name="note" placeholder="Es. sono principiante, ho un infortunio al ginocchio..."></textarea></div>
+      <button type="submit" class="btn btn-red">Conferma prenotazione →</button>
+      <div class="fineprint">Riceverai conferma di disponibilità entro poche ore.</div>
+    </form>`;
+}
+
+/* ---------- TOAST ---------- */
+let toastT;
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),2200); }
+
+/* ---------- MOBILE MENU ---------- */
+function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenuIfOpen(){ document.getElementById('mobileMenu').classList.remove('open'); }
+
+/* ---------- REVEAL ON SCROLL (deterministic, never gets stuck) ---------- */
+function observeReveals(){
+  const h=window.innerHeight||800;
+  document.querySelectorAll('.view.active [data-reveal]:not(.in)').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < h*0.92 && r.bottom > -50){ el.classList.add('in'); }
+  });
+}
+window.addEventListener('scroll',observeReveals,{passive:true});
+window.addEventListener('resize',observeReveals);
+window.addEventListener('load',()=>{observeReveals();runCounters();});
+
+/* ---------- COUNTERS ---------- */
+function runCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    if(el.dataset.done)return;
+    const target=parseFloat(el.dataset.count), dec=+(el.dataset.dec||0), suffix=el.dataset.suffix||'';
+    if(el.dataset.plain){ el.dataset.done=1; return; } // keep 1994 static
+    const rect=el.getBoundingClientRect();
+    if(rect.top>window.innerHeight||rect.bottom<0)return;
+    el.dataset.done=1;
+    const finalTxt=(dec? target.toFixed(dec).replace('.',',') : Math.round(target).toLocaleString('it-IT'))+suffix;
+    let t0=performance.now(), dur=1400, raf, settled=false;
+    function settle(){ if(settled)return; settled=true; if(raf)cancelAnimationFrame(raf); el.textContent=finalTxt; }
+    function step(now){
+      let p=Math.min(1,(now-t0)/dur); p=1-Math.pow(1-p,3);
+      let val=target*p;
+      let txt = dec? val.toFixed(dec).replace('.',',') : Math.round(val).toLocaleString('it-IT');
+      el.textContent = txt + suffix;
+      if(p<1) raf=requestAnimationFrame(step); else settle();
+    }
+    raf=requestAnimationFrame(step);
+    setTimeout(settle, dur+250); // garantisce il valore finale anche se rAF si ferma (tab in background su mobile)
+  });
+}
+window.addEventListener('scroll',runCounters,{passive:true});
+
+/* ---------- INIT ---------- */
+(function init(){
+  const hash=location.hash.replace('#','');
+  if(hash && document.getElementById('view-'+hash)){ go(hash); } else { setActiveNav('home'); }
+  observeReveals();
+  runCounters();
+})();
+</script>
+
+<!-- Moduli e-commerce (caricati dopo lo script di base) -->
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/cookie.js"></script>
+</body>
+</html>

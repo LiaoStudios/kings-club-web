@@ -1,0 +1,145 @@
+/* ===== Componenti e-commerce / fix — King's Club (usa le variabili del sito) ===== */
+
+/* --- Bottone carrello in navbar --- */
+.cart-btn{position:relative;background:none;border:1px solid var(--hairline-strong);border-radius:10px;width:44px;height:40px;display:inline-flex;align-items:center;justify-content:center;color:var(--bone);transition:border-color .18s,color .18s}
+.cart-btn:hover{border-color:var(--red);color:var(--red)}
+.cart-btn svg{width:20px;height:20px}
+.cart-badge{position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;border-radius:100px;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;transform:scale(0);transition:transform .2s}
+.cart-badge.show{transform:scale(1)}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:14px}
+.nav-actions .nav-cta{margin-left:0}
+
+/* --- Cart drawer --- */
+.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.28s;z-index:90}
+.drawer-backdrop.open{opacity:1;visibility:visible}
+.cart-drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--charcoal-2);border-left:1px solid var(--hairline-strong);z-index:95;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.cart-drawer.open{transform:none}
+.cart-drawer header{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--hairline)}
+.cart-drawer header h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:22px;color:var(--bone)}
+.cart-drawer .close{background:none;border:1px solid var(--hairline);border-radius:8px;width:36px;height:36px;color:var(--muted);font-size:18px}
+.cart-drawer .close:hover{color:var(--bone)}
+.cart-list{flex:1;overflow-y:auto;padding:12px 24px}
+.cart-empty{color:var(--muted);text-align:center;padding:60px 20px;font-size:15px}
+.cart-row{display:grid;grid-template-columns:56px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--hairline)}
+.cart-row .thumb{width:56px;height:56px;border-radius:8px;background:var(--panel);border:1px solid var(--hairline);object-fit:cover}
+.cart-row .info h4{font-size:14px;color:var(--bone);font-weight:600;margin-bottom:3px}
+.cart-row .info .var{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2)}
+.cart-row .info .price{font-size:13px;color:var(--red);font-weight:600;margin-top:6px}
+.cart-row .right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--hairline-strong);border-radius:8px;overflow:hidden}
+.qty button{width:28px;height:28px;background:var(--panel);border:none;color:var(--bone);font-size:15px}
+.qty button:hover{background:var(--lift)}
+.qty span{min-width:30px;text-align:center;font-size:13px;color:var(--bone)}
+.cart-row .rm{background:none;border:none;color:var(--muted-2);font-size:12px;text-decoration:underline}
+.cart-row .rm:hover{color:var(--red)}
+.cart-drawer footer{padding:20px 24px;border-top:1px solid var(--hairline);background:var(--charcoal)}
+.cart-drawer .totrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.cart-drawer .totrow .lbl{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cart-drawer .totrow .val{font-family:'Anton',sans-serif;font-size:30px;color:var(--bone)}
+.cart-drawer .actions{display:flex;gap:10px}
+.cart-drawer .actions .btn{flex:1;justify-content:center}
+.link-clear{background:none;border:none;color:var(--muted-2);font-size:12px;text-decoration:underline;margin-top:12px;display:block;width:100%;text-align:center}
+.link-clear:hover{color:var(--red)}
+
+/* --- Product cards (shop) --- */
+.prod{position:relative;background:var(--panel);border:1px solid var(--hairline);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.prod:hover{transform:translateY(-4px);border-color:var(--hairline-strong)}
+.prod .ph{aspect-ratio:1;background:var(--panel-2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.prod .ph img{width:100%;height:100%;object-fit:cover}
+.prod .ph img.placeholder{width:52%;height:auto;opacity:.5;object-fit:contain}
+.prod .soldout{position:absolute;top:12px;left:12px;background:#000;color:#fff;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:5px 9px;border-radius:5px}
+.prod .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.prod .cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+.prod .body h4{font-size:16px;color:var(--bone);font-weight:600;line-height:1.25}
+.prod .desc{font-size:13px;color:var(--muted);line-height:1.5}
+.prod .variants{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.prod .variants select{background:var(--charcoal);border:1px solid var(--hairline-strong);border-radius:8px;color:var(--bone);font-family:inherit;font-size:12px;padding:7px 8px;flex:1;min-width:88px}
+.prod .variants select:focus{outline:none;border-color:var(--red)}
+.prod .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:8px}
+.prod .price{font-family:'Anton',sans-serif;font-size:24px;color:var(--bone)}
+.prod .stock{font-size:11px;color:var(--muted-2)}
+.prod .add{background:var(--red);color:#fff;border:none;border-radius:9px;padding:11px 15px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:13px;letter-spacing:.04em;transition:background .18s}
+.prod .add:hover{background:#f52a31}
+.prod .add:disabled{background:var(--lift);color:var(--muted-2);cursor:not-allowed}
+
+/* --- Checkout --- */
+.co-summary{background:var(--charcoal);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;margin-bottom:20px}
+.co-summary .li{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;color:var(--bone)}
+.co-summary .li .m{color:var(--muted)}
+.co-summary .tot{display:flex;justify-content:space-between;border-top:1px solid var(--hairline);margin-top:8px;padding-top:10px;font-weight:700;color:var(--bone)}
+.pay-opts,.ful-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:6px}
+.pay-opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--hairline-strong);border-radius:10px;padding:13px 14px;cursor:pointer;transition:border-color .16s}
+.pay-opt:hover{border-color:var(--muted)}
+.pay-opt.sel{border-color:var(--red)}
+.pay-opt input{margin-top:3px;accent-color:var(--red)}
+.pay-opt .t{font-size:14px;color:var(--bone);font-weight:600}
+.pay-opt .d{font-size:12px;color:var(--muted);margin-top:2px}
+.co-note{font-size:12px;color:var(--muted-2);text-align:center;margin-top:12px}
+
+/* --- Cookie banner (GDPR) --- */
+.cookie{position:fixed;left:20px;right:20px;bottom:20px;z-index:120;max-width:560px;margin:0 auto;background:var(--charcoal-2);border:1px solid var(--hairline-strong);border-radius:16px;padding:22px 24px;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:translateY(140%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.cookie.show{transform:none}
+.cookie h4{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:19px;color:var(--bone);margin-bottom:8px}
+.cookie p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:16px}
+.cookie p a{color:var(--red)}
+.cookie .row{display:flex;gap:10px;flex-wrap:wrap}
+.cookie .row .btn{flex:1;justify-content:center;min-width:120px}
+.cookie .prefs{margin:6px 0 16px;display:none;flex-direction:column;gap:10px}
+.cookie .prefs.open{display:flex}
+.cookie .pref{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--hairline);border-radius:9px;padding:11px 13px}
+.cookie .pref .t{font-size:13px;color:var(--bone);font-weight:600}
+.cookie .pref .s{font-size:11px;color:var(--muted-2)}
+.cookie .pref input{width:18px;height:18px;accent-color:var(--red)}
+.cookie .pref input:disabled{opacity:.5}
+
+/* --- Social icons (footer) --- */
+.socials{display:flex;gap:12px;margin-bottom:12px}
+.socials a{width:40px;height:40px;border:1px solid var(--hairline-strong);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--bone);transition:border-color .18s,color .18s,transform .18s}
+.socials a:hover{border-color:var(--red);color:var(--red);transform:translateY(-2px)}
+.socials svg{width:19px;height:19px}
+
+/* --- Marquee: striscia rossa che scorre verso destra (desktop + mobile) --- */
+.marquee{overflow:hidden}
+.marquee .marquee-track{animation:marqueeRight 34s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marqueeRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(max-width:680px){
+  .marquee{height:52px}
+  .marquee .marquee-track span{font-size:17px}
+  .marquee .marquee-track{animation-duration:22s}
+}
+@media (prefers-reduced-motion:reduce){.marquee .marquee-track{animation:none}}
+
+/* --- Order confirmation toast/badge riuso .success (già nel sito) --- */
+
+/* --- Sala pesi: caratteristiche in numeri --- */
+.gym-h{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:26px;color:var(--bone);margin:0 0 18px}
+.gym-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.gym-specs .gs{background:var(--panel);border:1px solid var(--hairline);border-radius:12px;padding:22px 18px}
+.gym-specs .gs .n{font-family:'Anton',sans-serif;font-size:40px;line-height:1;color:var(--red)}
+.gym-specs .gs .l{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px;font-weight:600}
+.gym-note{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:44px;max-width:70ch}
+@media(max-width:680px){.gym-specs{grid-template-columns:repeat(2,1fr)}}
+
+/* --- Abbonamenti (piani) --- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:20px}
+.plan{position:relative;background:var(--panel);border:1px solid var(--hairline);border-radius:16px;padding:34px 28px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.plan:hover{transform:translateY(-4px);border-color:var(--hairline-strong)}
+.plan.pop{border-color:var(--red)}
+.plan .tagpop{position:absolute;top:-11px;left:28px;background:var(--red);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:6px}
+.plan h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:28px;color:var(--bone);margin-bottom:6px}
+.plan .sub{font-size:13px;color:var(--muted);margin-bottom:20px;min-height:34px}
+.plan .price{font-family:'Anton',sans-serif;font-size:54px;line-height:1;color:var(--bone)}
+.plan .price small{font-size:15px;color:var(--muted);font-family:'Inter',sans-serif;font-weight:500}
+.plan ul{list-style:none;margin:22px 0 26px;display:flex;flex-direction:column;gap:11px}
+.plan li{font-size:14px;color:var(--bone);display:flex;gap:10px;align-items:flex-start;line-height:1.4}
+.plan li::before{content:"✓";color:var(--red);font-weight:800}
+.plan .btn{margin-top:auto;width:100%;justify-content:center}
+.plans-note{color:var(--muted-2);font-size:13px;padding-bottom:40px}
+@media(max-width:900px){.plans{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
+/* --- Abbonamenti: selettore durata --- */
+.dur-toggle{display:inline-flex;gap:4px;background:var(--panel);border:1px solid var(--hairline);border-radius:100px;padding:5px;margin-bottom:30px;flex-wrap:wrap}
+.dur-toggle button{background:none;border:none;color:var(--muted);font-weight:600;font-size:13px;padding:9px 18px;border-radius:100px;transition:background .16s,color .16s;cursor:pointer}
+.dur-toggle button.active{background:var(--red);color:#fff}
+.dur-toggle button:hover:not(.active){color:var(--bone)}
